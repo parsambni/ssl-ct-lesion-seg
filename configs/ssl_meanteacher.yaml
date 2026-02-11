@@ -1,0 +1,14 @@
+# Semi-supervised Mean Teacher training
+# Extends base.yaml
+
+method: "ssl_meanteacher"
+
+# SSL-specific
+train_mode: "ssl"
+ema_decay: 0.99
+consistency_lambda: 0.1
+consistency_rampup_epochs: 10
+pseudo_label_threshold: 0.9
+
+# For SSL, we'll use both labeled and unlabeled data
+# These are set dynamically based on --labeled_ratio

@@ -1,0 +1,8 @@
+# Supervised baseline U-Net training
+# Extends base.yaml
+
+method: "supervised"
+
+# Supervised-specific
+train_mode: "supervised"
+num_labeled_epochs: 50

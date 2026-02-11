@@ -1,0 +1,40 @@
+# Base configuration for all experiments
+# Override in method-specific configs (supervised.yaml, ssl_meanteacher.yaml, etc.)
+
+experiment_name: "baseline"
+seed: 42
+deterministic: true  # CUDA deterministic mode
+
+# Dataset
+data_root: "dataset"  # Will search for imagesTr/, labelsTr/, dataset.json here
+train_ratio: 0.8
+val_ratio: 0.1
+test_ratio: 0.1
+
+# Data processing
+image_norm: "ct"  # "ct" for HU windowing, "minmax" for [0,1]
+slice_thickness: 1  # interleave 1 = every slice, 2 = every 2nd slice, etc.
+patch_size: [256, 256]  # spatial size for 2D patches
+batch_size: 8
+
+# Model
+model: "unet2d"
+in_channels: 1
+out_channels: 2  # background + tumor/vessel (infer from dataset.json if possible)
+base_channels: 32
+
+# Training
+num_epochs: 50
+learning_rate: 1.0e-4
+weight_decay: 1.0e-5
+optimizer: "adam"  # adam or sgd
+scheduler: "cosine"  # cosine or constant
+
+# Logging and checkpointing
+log_interval: 10
+save_interval: 5
+output_dir: "runs"
+
+# Smoke test
+smoke_mode: false
+smoke_samples: 2  # Only load 2 patient samples for quick testing

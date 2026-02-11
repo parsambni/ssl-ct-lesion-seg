@@ -1,0 +1,22 @@
+[build-system]
+requires = ["setuptools>=45", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "ssl-ct-lesion-seg"
+version = "0.1.0"
+description = "Semi-Supervised CT Vessel/Tumor Segmentation"
+authors = [{name = "Research Team"}]
+requires-python = ">=3.8"
+dependencies = [
+    "torch>=2.0.0",
+    "nibabel>=5.0.0",
+    "numpy>=1.24.0",
+    "pyyaml>=6.0",
+    "tqdm>=4.65.0",
+    "scipy>=1.10.0",
+    "opencv-python>=4.7.0",
+    "pytest>=7.0.0",
+    "scikit-learn>=1.2.0",
+    "Pillow>=10.0.0",
+]

@@ -1,0 +1,18 @@
+# Semi-supervised Mean Teacher + Reliability-Aware Targeted Augmentation
+# Extends base.yaml and ssl_meanteacher.yaml
+
+method: "ssl_targetaug"
+
+# SSL-specific
+train_mode: "ssl"
+ema_decay: 0.99
+consistency_lambda: 0.1
+consistency_rampup_epochs: 10
+pseudo_label_threshold: 0.9
+
+# Reliability-aware augmentation
+use_targeted_augmentation: true
+reliability_method: "entropy"  # "entropy", "maxprob", or "combined"
+confidence_threshold: 0.9
+min_augmentation_strength: 0.3
+max_augmentation_strength: 1.0
