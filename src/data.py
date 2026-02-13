@@ -40,8 +40,10 @@ class DatasetDiscovery:
         if meta_path.exists():
             with open(meta_path) as f:
                 self.metadata = json.load(f)
+            self.dataset_json = str(meta_path)       
         else:
             logger.warning(f"No dataset.json found. Inferring metadata from data.")
+            self.dataset_json = None                  
         
         # Setup patients
         self.patient_ids = self._get_patient_ids()
