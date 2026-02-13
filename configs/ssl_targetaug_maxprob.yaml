@@ -1,0 +1,18 @@
+# Semi-supervised Mean Teacher + Targeted Aug (Max-Probability Reliability)
+# Proposed method with max-probability based confidence estimation
+
+method: "ssl_targetaug_maxprob"
+train_mode: "ssl"
+
+# SSL-specific
+ema_decay: 0.99
+consistency_lambda: 0.1
+consistency_rampup_epochs: 10
+pseudo_label_threshold: 0.9
+
+# Reliability-aware augmentation (max-probability)
+use_targeted_augmentation: true
+reliability_method: "maxprob"          # Max softmax probability
+confidence_threshold: 0.9
+min_augmentation_strength: 0.3
+max_augmentation_strength: 1.0

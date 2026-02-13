@@ -1,0 +1,15 @@
+# Semi-supervised Consistency Regularization Only (No Pseudo-Labels)
+# Ablation: Tests effectiveness of consistency regularization alone
+
+method: "ssl_consistency_only"
+train_mode: "ssl"
+
+# SSL-specific
+ema_decay: 0.99
+consistency_lambda: 0.1
+consistency_rampup_epochs: 10
+pseudo_label_threshold: 1.0            # Disable pseudo-labels (threshold too high)
+
+# No reliability gating or targeted augmentation
+use_targeted_augmentation: false
+reliability_method: null

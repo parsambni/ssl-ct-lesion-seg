@@ -1,0 +1,15 @@
+# Semi-supervised Pseudo-Labeling Only (No Consistency Loss)
+# Ablation: Tests effectiveness of teacher-generated pseudo-labels alone
+
+method: "ssl_pseudolabel_only"
+train_mode: "ssl"
+
+# SSL-specific
+ema_decay: 0.99
+consistency_lambda: 0.0                # Disable consistency loss
+consistency_rampup_epochs: 0
+pseudo_label_threshold: 0.9
+
+# No reliability gating or targeted augmentation
+use_targeted_augmentation: false
+reliability_method: null
